@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MyCar - תחזוקה ותזכורות</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header>
+        <nav>
+            <a href="index.html">דף הבית</a>
+            <a href="expenses.html">הוצאות הרכב</a>
+            <a href="maintenance.html">תחזוקה ותזכורות</a>
+            <a href="passport.html">תיק הרכב</a>
+        </nav>
+    </header>
+
+    <main>
+        <header>
+            <h1>תחזוקה ותזכורות</h1>
+            <p>ניהול התזכורות והטיפולים של הרכב.</p>
+            <p>המידע בעמוד משותף לנהגים המשויכים לרכב.</p>
+        </header>
+
+        <section id="reminders-section">
+            <h2>תזכורות קרובות</h2>
+
+            <form id="reminder-form">
+                <h3>הוספת תזכורת</h3>
+
+                <label for="reminder-type">סוג התזכורת:</label>
+                <select id="reminder-type" name="reminderType" required>
+                    <option value="">בחר סוג תזכורת</option>
+                    <option value="test">טסט</option>
+                    <option value="insurance">ביטוח</option>
+                </select><br>
+
+                <label for="reminder-date">תאריך יעד:</label>
+                <input
+                    type="date"
+                    id="reminder-date"
+                    name="reminderDate"
+                    required
+                ><br>
+
+                <label for="reminder-kilometer">קילומטראז׳:</label>
+                <input
+                    type="number"
+                    id="reminder-kilometer"
+                    name="reminderKilometer"
+                    min="0"
+                ><br>
+
+                <button type="submit">הוספת התזכורת</button>
+            </form>
+
+            <ul id="reminders-list">
+                <li>אין כרגע תזכורות להצגה.</li>
+            </ul>
+            <!--
+  Template for one reminder.
+  It is hidden from the page until JavaScript copies it into the reminders list,
+  fills in the reminder details, and uses its form to update the reminder.
+-->
+<template id="reminder-item-template">
+                <li class="reminder-item">
+                    <h3 data-reminder-name></h3>
+                    <p>תאריך יעד: <time data-reminder-date></time></p>
+                    <p>קילומטראז׳: <span data-reminder-kilometer></span></p>
+
+                    <details>
+                        <summary>שינוי התזכורת</summary>
+
+                        <form class="reminder-edit-form">
+                            <label>
+                                תאריך יעד חדש:
+                                <input
+                                    type="date"
+                                    name="reminderDate"
+                                >
+                            </label>
+
+                            <label>
+                               קילומטראז׳:
+                                <input
+                                    type="number"
+                                    name="reminderKilometer"
+                                    min="0"
+                                >
+                            </label>
+
+                            <button type="submit">שמירת שינוי</button>
+                        </form>
+                    </details>
+                </li>
+            </template>
+        </section>
+
+        <section id="planned-treatments-section">
+            <h2>טיפולים מתוכננים</h2>
+
+            <form id="treatment-form">
+                <h3>הוספת טיפול</h3>
+                <label for="treatment-name">סוג הטיפול:</label>
+                <input
+                    type="text"
+                    id="treatment-name"
+                    name="treatmentName"
+                    required 
+                > <br>
+
+                <label for="planned-date">תאריך יעד:</label>
+                <input
+                    type="date"
+                    id="planned-date"
+                    name="plannedDate"
+                > <br>
+
+                <label for="planned-kilometer">קילומטראז׳ יעד:</label>
+                <input
+                    type="number"
+                    id="planned-kilometer"
+                    name="plannedKilometer"
+                    min="0"
+                > <br>
+
+                <button type="submit">הוספת הטיפול</button>
+            </form>
+
+            <ul id="planned-treatments-list">
+                <li>אין כרגע טיפולים מתוכננים להצגה.</li>
+            </ul>
+            <!--
+  Template for one planned treatment.
+  It is hidden from the page until JavaScript copies it into the planned treatments list,
+  fills in the treatment details, and uses its forms to edit or complete the treatment.
+-->
+            <template id="planned-treatment-template">
+                <li class="planned-treatment">
+                    <h3 data-treatment-name></h3>
+                    <p>תאריך יעד: <time data-planned-date></time></p>
+                    <p>קילומטראז׳ יעד: <span data-planned-kilometer></span></p>
+
+                    <details>
+                        <summary>שינוי תאריך או קילומטראז׳</summary>
+
+                        <form class="treatment-edit-form">
+                            <label>
+                                תאריך יעד חדש:
+                                <input
+                                    type="date"
+                                    name="plannedDate"
+                                >
+                            </label>
+
+                            <label>
+                                קילומטראז׳ יעד חדש:
+                                <input
+                                    type="number"
+                                    name="plannedKilometer"
+                                    min="0"
+                                >
+                            </label>
+
+                            <button type="submit">שמירת שינוי</button>
+                        </form>
+                    </details>
+
+                    <details>
+                        <summary>סימון כבוצע</summary>
+
+                        <form class="treatment-completion-form">
+                            <label>
+                                תאריך ביצוע:
+                                <input
+                                    type="date"
+                                    name="completionDate"
+                                    required
+                                >
+                            </label>
+
+                            <label>
+                                קילומטראז׳ בעת ביצוע הטיפול:
+                                <input
+                                    type="number"
+                                    name="completionKilometer"
+                                    min="0"
+                                    required
+                                >
+                            </label>
+
+                            <label>
+                                עלות הטיפול בש״ח:
+                                <input
+                                    type="number"
+                                    name="treatmentCost"
+                                    min="0"
+                                    step="0.01"
+                                    required
+                                >
+                            </label>
+
+                            <button type="submit">
+                                שמירת הטיפול והעברתו להיסטוריה
+                            </button>
+                        </form>
+                    </details>
+                </li>
+            </template>
+        </section>
+
+        <section id="completed-treatments-section">
+            <h2>היסטוריית טיפולים</h2>
+            <p>טיפולים שהושלמו ברכב יופיעו כאן וגם בעמוד תיק הרכב.</p>
+            <!--
+  Table for displaying the vehicle's completed treatment history.
+  JavaScript will add a row for each completed treatment to the table body.
+  The same treatment history is intended to appear on the car passport page.
+-->
+<table>
+            <table>
+                <thead>
+                    <tr>
+                        <th scope="col">שם הטיפול</th>
+                        <th scope="col">תאריך ביצוע</th>
+                        <th scope="col">קילומטראז׳</th>
+                        <th scope="col">עלות</th>
+                    </tr>
+                </thead>
+
+                <tbody id="completed-treatments-list">
+                </tbody>
+            </table>
+        </section>
+
+        <aside id="expense-note">
+            <p>
+                עלות טיפול שנרשמת בעמוד זה נשמרת בהיסטוריית הטיפולים,
+                אך אינה מתווספת אוטומטית לסיכום ההוצאות.
+                כדי לכלול אותה בחלוקת ההוצאות בין הנהגים, יש להזין אותה בנפרד
+                בעמוד <a href="expenses.html">הוצאות הרכב</a>.
+            </p>
+        </aside>
+
+        <p id="maintenance-message" role="status" aria-live="polite"></p>
+    </main>
+
+</body>
+
+</html>
