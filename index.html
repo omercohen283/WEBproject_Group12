@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MyCar - דף הבית</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+    <h2>MyCar</h2>
+    <nav>
+        <a href="index.html">דף הבית</a>
+        <a href="expenses.html">הוצאות הרכב</a>
+        <a href="maintenance.html">תחזוקה ותזכורות</a>
+        <a href="passport.html">תיק הרכב</a>
+    </nav>
+</header>
+<main>
+    <header>
+        <h1>דף הבית</h1>
+        <p>כל מה שצריך כדי לנהל את הרכב שלך במקום אחד.</p>
+        <p>שלום <span id="user-name"></span></p>
+    </header>
+    <section>
+    <h2>פרטי הרכב </h2>
+    <p>יצרן <span id="car-make"></span></p>
+    <p>דגם <span id="car-model"></span></p>
+    <p>שנת ייצור <span id="car-year"></span></p>
+    <p>מספר רישוי <span id="car-number"></span></p>
+    <p>קילומטראז׳ <span id="car-kilometers"></span></p>
+    <button type="button">עריכת פרטי הרכב</button>
+    </section>
+    <section>
+    <h2>נהגים משויכים</h2>
+    <h3>הנהגים המורשים ברכב</h3>
+    <button type="button">ניהול נהגים</button>
+    <ul id="drivers-list">
+    </ul>
+    </section>
+    <section>
+    <h2>סיכום הוצאות החודש</h2>
+    <p>   
+        <span id="expenses-month"></span>
+    </p>
+    <p>
+        סה"כ החודש <span id="monthly-expenses"></span>
+    </p>
+    <h3>פירוט הוצאות לפי קטגוריה</h3>
+    <ul id="expense-categories-list">
+    </ul>
+    </section>
+    <section>
+    <h2>היתרה האישית שלי</h2>
+    <p>סיכום החובות והזיכויים בינך לבין שותפי הרכב.</p>
+    <p>חייבים לך <span id="owed-to-me"></span></p>
+    <p>עליי להחזיר <span id="i-owe"></span></p>
+    <p>מאזן נטו <span id="net-balance"></span></p>
+    <h3>מי חייב למי </h3>
+    <ul id="drivers-balances-list">
+    </ul>
+    </section>
+    <section>
+    <h2>תזכורות קרובות</h2>
+    <p>המשימות הבאות שמחכות לטיפול.</p>
+    <ul id="upcoming-reminders-list">
+    </ul>
+    </section>
+    <section>
+    <h2>פעולות מהירות</h2>
+    <a href="expenses.html">הוספת הוצאה</a>
+    <a href="maintenance.html">מעבר לתחזוקה</a>
+    </section>
+</main>
+<footer>
+    <p>MyCar - ניהול הרכב שלך במקום אחד</p>
+</footer>
+</body>
+</html>
