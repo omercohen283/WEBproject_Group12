@@ -40,7 +40,71 @@ body {
    5. EXPENSES & SPLIT - expenses.html
    אחראית: מיקה
    ================================================== */
+/* ------------------------------------------
+   EXPENSES - פריסת העמוד
+   ------------------------------------------ */
 
+.expenses-layout {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 24px;
+    margin: 24px;
+}
+
+/* ------------------------------------------
+   EXPENSES - עיצוב הכרטיסיות
+   ------------------------------------------ */
+
+.expenses-layout .card {
+    background-color: #FFFFFF;
+    padding: 24px;
+    border-radius: 12px;
+    border: 1px solid #8A9189;
+}
+
+/* ------------------------------------------
+   EXPENSES - סיכומים והיסטוריה
+   ------------------------------------------ */
+
+.expenses-summary-column {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+#expense-history {
+    grid-column: 1 / -1;
+}
+
+/* ------------------------------------------
+   EXPENSES - כפתור הוספת הוצאה
+   ------------------------------------------ */
+
+#open-expense-modal {
+    background-color: #F5C542;
+    color: #242424;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+/* ------------------------------------------
+   EXPENSES - התאמה למסכים קטנים
+   ------------------------------------------ */
+
+@media (max-width: 768px) {
+
+    .expenses-layout {
+        grid-template-columns: 1fr;
+        margin: 16px;
+    }
+
+    .expenses-summary-column {
+        grid-template-columns: 1fr;
+    }
+
+}
 /* expenses-layout */
 
 /* expenses-summary-column */
