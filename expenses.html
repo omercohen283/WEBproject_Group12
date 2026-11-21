@@ -90,11 +90,14 @@
                 <div id="split-section">
                      <h3>Split - חלוקת ההוצאה</h3>
 
-                    <label for="payer">מי שילם את ההוצאה?</label>
-                        <select id="payer" name="payer" required>
-                          <option value="">בחרי משלם</option>
-                      </select>
+                   <div class="form-field">
+    <label for="payer">מי שילם את ההוצאה?</label>
+    <select id="payer" name="payer" required>
+        <option value="">בחרי משלם</option>
+    </select>
+</div>
 
+                    <div class="split-details">
                     <h4>משתתפים בהוצאה:</h4>
                          <div id="participants-list">
                         <!-- JavaScript תוסיף כאן את הנהגים -->
@@ -107,6 +110,7 @@
 
                         <p id="split-total">סה"כ חלוקה: ₪0.00</p>
                         <p id="split-error"></p>
+                        </div> <!-- split-details -->
                 </div>
 
                 <button type="submit">חשב ושמור</button>
