@@ -25,9 +25,21 @@
         <h1>הוצאות הרכב</h1>
         <div class="expenses-layout">
 
-<section id="add-expense" class="card">            
+<section id="add-expense" class="card">
     <h2>הוספת הוצאה חדשה</h2>
 
+    <button type="button" id="open-expense-modal">
+        + הוספת הוצאה
+    </button>
+
+    <div id="expense-modal" class="modal" hidden>
+   
+       <div class="modal-content">
+    <h3>פרטי הוצאה חדשה</h3>
+    <button type="button" id="close-expense-modal">
+        ביטול
+    </button>
+           
             <form id="expense-form">
 
                 <label for="expense-name">שם ההוצאה:</label>
@@ -88,6 +100,8 @@
                 <button type="submit">חשב ושמור</button>
 
             </form>
+                  </div> <!-- modal-content -->
+                  </div> <!-- expense-modal -->
                  <p id="form-message" role="status"></p>
         </section>
             <div class="expenses-summary-column">
