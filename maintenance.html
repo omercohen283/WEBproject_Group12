@@ -5,10 +5,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MyCar - תחזוקה ותזכורות</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="maintenance-passport.css">
 </head>
 
-<body>
+<body data-page="maintenance">
 
     <header>
         <nav>
@@ -27,7 +27,10 @@
         </header>
 
         <section id="reminders-section">
-            <h2>תזכורות קרובות</h2>
+            <h2>
+                <span class="section-icon"><i data-lucide="calendar"></i></span>
+                תזכורות קרובות
+            </h2>
 
             <form id="reminder-form">
                 <h3>הוספת תזכורת</h3>
@@ -61,19 +64,15 @@
             <ul id="reminders-list">
                 <li>אין כרגע תזכורות להצגה.</li>
             </ul>
-            <!--
-  Template for one reminder.
-  It is hidden from the page until JavaScript copies it into the reminders list,
-  fills in the reminder details, and uses its form to update the reminder.
--->
+            <!-- התבנית מוסתרת עד שקוד הסקריפט משכפל אותה, ממלא את פרטי התזכורת ומוסיף אותה לרשימה. -->
 <template id="reminder-item-template">
                 <li class="reminder-item">
                     <h3 data-reminder-name></h3>
-                    <p>תאריך יעד: <time data-reminder-date></time></p>
-                    <p>קילומטראז׳: <span data-reminder-kilometer></span></p>
+                    <p><i data-lucide="calendar"></i> תאריך יעד: <time data-reminder-date></time></p>
+                    <p><i data-lucide="gauge"></i> קילומטראז׳: <span data-reminder-kilometer></span></p>
 
                     <details>
-                        <summary>שינוי התזכורת</summary>
+                        <summary><i data-lucide="pencil"></i> שינוי התזכורת</summary>
 
                         <form class="reminder-edit-form">
                             <label>
@@ -101,7 +100,10 @@
         </section>
 
         <section id="planned-treatments-section">
-            <h2>טיפולים מתוכננים</h2>
+            <h2>
+                <span class="section-icon"><i data-lucide="layers"></i></span>
+                טיפולים מתוכננים
+            </h2>
 
             <form id="treatment-form">
                 <h3>הוספת טיפול</h3>
@@ -134,19 +136,15 @@
             <ul id="planned-treatments-list">
                 <li>אין כרגע טיפולים מתוכננים להצגה.</li>
             </ul>
-            <!--
-  Template for one planned treatment.
-  It is hidden from the page until JavaScript copies it into the planned treatments list,
-  fills in the treatment details, and uses its forms to edit or complete the treatment.
--->
+            <!-- תבנית לטיפול מתוכנן, הכוללת טפסים לעדכון הטיפול ולסימונו כבוצע. -->
             <template id="planned-treatment-template">
                 <li class="planned-treatment">
                     <h3 data-treatment-name></h3>
-                    <p>תאריך יעד: <time data-planned-date></time></p>
-                    <p>קילומטראז׳ יעד: <span data-planned-kilometer></span></p>
+                    <p><i data-lucide="calendar"></i> תאריך יעד: <time data-planned-date></time></p>
+                    <p><i data-lucide="gauge"></i> קילומטראז׳ יעד: <span data-planned-kilometer></span></p>
 
                     <details>
-                        <summary>שינוי תאריך או קילומטראז׳</summary>
+                        <summary><i data-lucide="pencil"></i> שינוי תאריך או קילומטראז׳</summary>
 
                         <form class="treatment-edit-form">
                             <label>
@@ -171,7 +169,7 @@
                     </details>
 
                     <details>
-                        <summary>סימון כבוצע</summary>
+                        <summary><i data-lucide="check-circle-2"></i> סימון כבוצע</summary>
 
                         <form class="treatment-completion-form">
                             <label>
@@ -214,13 +212,11 @@
         </section>
 
         <section id="completed-treatments-section">
-            <h2>היסטוריית טיפולים</h2>
+            <h2>
+                <span class="section-icon"><i data-lucide="history"></i></span>
+                היסטוריית טיפולים
+            </h2>
             <p>טיפולים שהושלמו ברכב יופיעו כאן וגם בעמוד תיק הרכב.</p>
-            <!--
-  Table for displaying the vehicle's completed treatment history.
-  JavaScript will add a row for each completed treatment to the table body.
-  The same treatment history is intended to appear on the car passport page.
--->
 <table>
             <table>
                 <thead>
@@ -239,6 +235,7 @@
 
         <aside id="expense-note">
             <p>
+                <i data-lucide="info"></i>
                 עלות טיפול שנרשמת בעמוד זה נשמרת בהיסטוריית הטיפולים,
                 אך אינה מתווספת אוטומטית לסיכום ההוצאות.
                 כדי לכלול אותה בחלוקת ההוצאות בין הנהגים, יש להזין אותה בנפרד
@@ -248,6 +245,11 @@
 
         <p id="maintenance-message" role="status" aria-live="polite"></p>
     </main>
+    <footer>
+    <p>MyCar - ניהול הרכב שלך במקום אחד</p>
+</footer>
+<script src="https://unpkg.com/lucide@latest"></script>
+<script>lucide.createIcons();</script>
 
 </body>
 
